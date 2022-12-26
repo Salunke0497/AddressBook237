@@ -4,12 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdressBook
+namespace AddressBook
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            AddressLogic addressLogic = new AddressLogic();
+            int num;
+            Console.WriteLine("PRESS\n1)AddContact\n2)EditContact\n3)Exit");
+             num =Convert.ToInt32(Console.ReadLine());
+            switch (num)
+            {
+                case 1:
+                    addressLogic.addcontact();
+                    break;
+
+                case 2:
+                    addressLogic.editcontact();
+                    break;
+
+                default:
+                    break;
+            }
+                Console.ReadLine();
         }
     }
 }
