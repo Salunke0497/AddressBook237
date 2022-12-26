@@ -11,9 +11,9 @@ namespace AddressBook
         static void Main(string[] args)
         {
             AddressLogic addressLogic = new AddressLogic();
-            int num;
-            Console.WriteLine("PRESS\n1)AddContact\n2)EditContact\n3)Exit");
-             num =Convert.ToInt32(Console.ReadLine());
+            
+            Console.WriteLine("PRESS\n1)AddContact\n2)EditContact\n3)RemoveContact\n4)display\n5)CreateDictonary");
+            int num =Convert.ToInt32(Console.ReadLine());
             switch (num)
             {
                 case 1:
@@ -23,8 +23,17 @@ namespace AddressBook
                 case 2:
                     addressLogic.editcontact();
                     break;
+
                 case 3:
                     addressLogic.removecontact();
+                    break;
+
+                case 4:
+                    addressLogic.Display();
+                    break;
+
+                case 5:
+                    addressLogic.CreateDictionary();
                     break;
 
                 default:
