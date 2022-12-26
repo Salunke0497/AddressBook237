@@ -23,6 +23,9 @@ namespace AddressBook
                 case 2:
                     addressLogic.editcontact();
                     break;
+                case 3:
+                    addressLogic.removecontact();
+                    break;
 
                 default:
                     break;
