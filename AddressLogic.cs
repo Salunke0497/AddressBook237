@@ -9,6 +9,9 @@ namespace AddressBook
     public class AddressLogic
     {
         List<DataOfPerson> person1 = new List<DataOfPerson>();
+        Dictionary<string, List<DataOfPerson>> addressBook = new Dictionary<string, List<DataOfPerson>>();
+
+        //UC1-UC2-AddContact details
         public void addcontact()
         {
             DataOfPerson person = new DataOfPerson();
@@ -28,6 +31,7 @@ namespace AddressBook
             person.Email = Console.ReadLine();
             person1.Add(person);
         }
+        //UC3 EditContact
         public void editcontact()
         {
             DataOfPerson person = new DataOfPerson();
@@ -49,6 +53,7 @@ namespace AddressBook
             Console.WriteLine("Contact sucessfully update");
 
         }
+        //UC4 Remove contact
         public void removecontact()
 
         {
@@ -62,9 +67,27 @@ namespace AddressBook
                 {
                     person1.Remove(person);
                 }
-
             Console.WriteLine("Contact is succesfully Removed");
 
+        }
+        // display the list
+        public void Display()
+        {
+            foreach (var person in person1)
+            {
+                Console.WriteLine("Contact Details:" + "\n" + "FirstName: " + person.FirstName + "\n" + "LastName: " + person.LastName + "\n" + "Address: " + person.Address + "\n" + "City: " + person.City + "\n" + "PhoneNumber: " + person.PhoneNum + "\n" + "Email: " + person.Email);
+            }
+
+        }
+        //uc5
+        // add multiple data of person
+
+        public void CreateDictionary()
+        {
+            Console.WriteLine("Enter with what name you want to add in dictionary");
+            string name = Console.ReadLine();
+            addressBook.Add(name, person1);
+            person1 = new List<DataOfPerson>();
         }
     }
 }
