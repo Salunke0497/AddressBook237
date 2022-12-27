@@ -11,35 +11,46 @@ namespace AddressBook
         static void Main(string[] args)
         {
             AddressLogic addressLogic = new AddressLogic();
-            
-            Console.WriteLine("PRESS\n1)AddContact\n2)EditContact\n3)RemoveContact\n4)display\n5)CreateDictonary");
-            int num =Convert.ToInt32(Console.ReadLine());
-            switch (num)
+            bool choice = true;
+            while (choice)
             {
-                case 1:
-                    addressLogic.addcontact();
-                    break;
+                Console.WriteLine("enter\n1.add person\n2.edit person details\n3.remove person\n4.Display\n5.CreateDitionary\n6.DispalayDictionary\n7.exit");
+                Console.WriteLine("please choose any one");
+                int num = Convert.ToInt32(Console.ReadLine());
+                switch (num)
+                {
+                    case 1:
+                        addressLogic.addcontact();
+                        break;
 
-                case 2:
-                    addressLogic.editcontact();
-                    break;
+                    case 2:
+                        addressLogic.editcontact();
+                        break;
 
-                case 3:
-                    addressLogic.removecontact();
-                    break;
+                    case 3:
+                        addressLogic.removecontact();
+                        break;
 
-                case 4:
-                    addressLogic.Display();
-                    break;
+                    case 4:
+                        addressLogic.Display();
+                        break;
 
-                case 5:
-                    addressLogic.CreateDictionary();
-                    break;
+                    case 5:
+                        addressLogic.CreateDictionary();
+                        break;
+                    case 6:
+                        addressLogic.DisplayDictionary();
+                        break;
 
-                default:
-                    break;
-            }
+                    case 7:
+                        choice = false;
+                        break;
+
+                    default:
+                        break;
+                }
                 Console.ReadLine();
+            }
         }
     }
 }
