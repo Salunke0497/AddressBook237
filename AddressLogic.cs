@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace AddressBook
 {
@@ -29,7 +34,8 @@ namespace AddressBook
             person.ZipCode = Console.ReadLine();
             Console.Write("Enter EmailId : ");
             person.Email = Console.ReadLine();
-            person1.Add(person);
+            //person1.Add(person);
+            CheckDuplicateName(person1, person);
         }
         //UC3 EditContact
         public void editcontact()
@@ -99,8 +105,23 @@ namespace AddressBook
                 {
                     Console.WriteLine("Contact Details:" + "\n" + "FirstName: " + person.FirstName + "\n" + "LastName: " + person.LastName + "\n" + "Address: " + person.Address + "\n" + "City: " + person.City + "\n" + "PhoneNumber: " + person.PhoneNum + "\n" + "Email: " + person.Email);
                 }
+            }
+        }
 
 
+        //UC7 
+        //Duplicate data of person (collection demo) & (LAMBADA)
+        public void CheckDuplicateName(List<DataOfPerson> person1, DataOfPerson person)
+        {
+            if (person1.Exists(e => e.FirstName == person.FirstName && e.LastName == person.LastName))
+            {
+                Console.WriteLine("The person name is already exits");
+            }
+            else
+            {
+                Console.WriteLine("The person name is not already exits then add to the list");
+                person1.Add(person);
+                Display();
             }
         }
     }
