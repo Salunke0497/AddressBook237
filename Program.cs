@@ -14,7 +14,7 @@ namespace AddressBook
             bool choice = true;
             while (choice)
             {
-                Console.WriteLine("enter\n1.add person\n2.edit person details\n3.remove person\n4.Display\n5.CreateDitionary\n6.DispalayDictionary\n7.exit");
+                Console.WriteLine("enter\n1.add person\n2.edit person details\n3.remove person\n4.Display\n5.CreateDitionary\n6.DispalayDictionary\n7.ViewLambdaExpression\n8.exit");
                 Console.WriteLine("please choose any one");
                 int num = Convert.ToInt32(Console.ReadLine());
                 switch (num)
@@ -41,8 +41,10 @@ namespace AddressBook
                     case 6:
                         addressLogic.DisplayDictionary();
                         break;
-
                     case 7:
+                        addressLogic.ViewLambdaExpression();
+                        break;
+                    case 8:
                         choice = false;
                         break;
 
