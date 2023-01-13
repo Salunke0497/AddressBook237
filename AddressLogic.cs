@@ -124,6 +124,56 @@ namespace AddressBook
                 Display();
             }
         }
+
+        //UC8-UC10.....
+        public void GroupOfSameCityLiveAndState(List<DataOfPerson> person1, string Method)
+        {
+
+            if (Method.Equals("city"))
+            {                
+                Console.WriteLine("Enter the name of city");
+                string cityname = Console.ReadLine();
+                Console.WriteLine(" CITY :" + cityname);
+                var AddressBookCityData = person1.FindAll(e => e.City == cityname);
+
+                foreach (var data in AddressBookCityData)
+                {
+                    Console.WriteLine("Name " + data.FirstName + " " + data.LastName);
+                }
+
+                // Count of person Uc10 in city
+                Console.WriteLine(" Total perosn present in City {0} is {1} ", cityname, AddressBookCityData.Count());
+            }
+            else if (Method.Equals("state"))
+            {
+                // To sort the details list
+
+                Console.WriteLine("Enter the name of state");
+                string statename = Console.ReadLine();
+                Console.WriteLine(" STATE :" + statename);
+                var addressBookStateData = person1.FindAll(e => e.State == statename);
+                foreach (var data in addressBookStateData)
+                {
+                    Console.WriteLine("Name " + data.FirstName + " " + data.LastName);
+                }
+                // Count of person Uc10 in state
+                Console.WriteLine(" Total perosn present in State {0} is {1} ", statename, addressBookStateData.Count());
+            }
+            else
+            {
+                Console.WriteLine("Invalid method");
+            }
+        }
+
+        /// <summary>
+        /// Uc9Display METHOD FOR lAMBDA EXPRESSION
+        /// </summary>
+        public void ViewLambdaExpression()
+        {
+            Console.WriteLine("Enter the serach location City/State");
+            string method = Console.ReadLine().ToLower(); ;
+            GroupOfSameCityLiveAndState(person1, method);
+        }
     }
 
 }
